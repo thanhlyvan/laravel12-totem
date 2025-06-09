@@ -4,10 +4,11 @@ namespace Studio\Totem\Tests\Feature;
 
 use Studio\Totem\Task;
 use Studio\Totem\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class ViewTaskTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function user_can_view_task()
     {
         $this->signIn();
@@ -19,7 +20,7 @@ class ViewTaskTest extends TestCase
         $response->assertSee($task->expression);
     }
 
-    /** @test */
+    #[Test]
     public function guest_can_not_view_task()
     {
         $task = Task::factory()->create();

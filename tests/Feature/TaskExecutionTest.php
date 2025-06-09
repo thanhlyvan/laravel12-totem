@@ -10,10 +10,11 @@ use Studio\Totem\Providers\ConsoleServiceProvider;
 use Studio\Totem\Result;
 use Studio\Totem\Task;
 use Studio\Totem\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class TaskExecutionTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_runs_a_scheduled_task()
     {
         $task = Task::factory()->create();
@@ -36,7 +37,7 @@ class TaskExecutionTest extends TestCase
         Event::assertDispatched(Executed::class);
     }
 
-    /** @test */
+    #[Test]
     public function it_executes_a_scheduled_task()
     {
         $task = Task::factory()->create();

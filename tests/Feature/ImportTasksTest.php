@@ -8,10 +8,11 @@ use Studio\Totem\Events\Created;
 use Studio\Totem\Events\Creating;
 use Studio\Totem\Task;
 use Studio\Totem\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class ImportTasksTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_imports_tasks_from_a_json_file()
     {
         Event::fake();

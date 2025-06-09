@@ -5,10 +5,11 @@ namespace Studio\Totem\Tests\Feature;
 use Carbon\Carbon;
 use Studio\Totem\Task;
 use Studio\Totem\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class ExportTasksTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_exports_tasks_as_json()
     {
         $tasks = Task::factory()->count(5)->create();

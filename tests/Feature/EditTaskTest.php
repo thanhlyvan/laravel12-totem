@@ -4,10 +4,11 @@ namespace Studio\Totem\Tests\Feature;
 
 use Studio\Totem\Task;
 use Studio\Totem\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class EditTaskTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function user_can_view_edit_task_form()
     {
         $this->disableExceptionHandling()->signIn();
@@ -18,7 +19,7 @@ class EditTaskTest extends TestCase
         $response->assertSee($task->expression);
     }
 
-    /** @test */
+    #[Test]
     public function guest_can_not_view_edit_task_form()
     {
         $task = Task::factory()->create();
@@ -26,7 +27,7 @@ class EditTaskTest extends TestCase
         $response->assertStatus(403);
     }
 
-    /** @test */
+    #[Test]
     public function user_can_edit_task()
     {
         $this->disableExceptionHandling()->signIn();

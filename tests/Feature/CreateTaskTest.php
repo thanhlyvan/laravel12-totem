@@ -3,10 +3,11 @@
 namespace Studio\Totem\Tests\Feature;
 
 use Studio\Totem\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class CreateTaskTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function user_can_view_create_task_form()
     {
         $this->disableExceptionHandling()->signIn();
@@ -16,7 +17,7 @@ class CreateTaskTest extends TestCase
         $response->assertStatus(200);
     }
 
-    /** @test */
+    #[Test]
     public function guest_can_not_view_create_task_form()
     {
         $response = $this->get(route('totem.task.create'));
@@ -24,7 +25,7 @@ class CreateTaskTest extends TestCase
         $response->assertStatus(403);
     }
 
-    /** @test */
+    #[Test]
     public function user_can_create_task_with_cron_expression()
     {
         $this->disableExceptionHandling()->signIn();
@@ -39,7 +40,7 @@ class CreateTaskTest extends TestCase
         $response->assertRedirect(route('totem.tasks.all'));
     }
 
-    /** @test */
+    #[Test]
     public function user_can_create_task_with_frequencies()
     {
         $this->disableExceptionHandling()->signIn();

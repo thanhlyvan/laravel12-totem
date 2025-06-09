@@ -5,10 +5,11 @@ namespace Studio\Totem\Tests\Feature;
 use Studio\Totem\Http\Middleware\Authenticate;
 use Studio\Totem\Tests\TestCase;
 use Studio\Totem\Totem;
+use PHPUnit\Framework\Attributes\Test;
 
 class AuthTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function auth_callback_works()
     {
         $this->assertFalse(Totem::check('roshan'));
@@ -22,7 +23,7 @@ class AuthTest extends TestCase
         $this->assertFalse(Totem::check(null));
     }
 
-    /** @test */
+    #[Test]
     public function auth_middleware_works()
     {
         Totem::auth(function () {
@@ -42,9 +43,7 @@ class AuthTest extends TestCase
         $this->assertEquals('response', $response);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function auth_middleware_responds_with_403_on_failure()
     {
         $this->expectException('\Symfony\Component\HttpKernel\Exception\HttpException');
