@@ -15,7 +15,7 @@ class AlterTasksTableAddRunInBackgroundSupport extends TotemMigration
     {
         Schema::connection(TOTEM_DATABASE_CONNECTION)
             ->table(TOTEM_TABLE_PREFIX.'tasks', function (Blueprint $table) {
-                $table->boolean('run_in_background')->default(false);
+                $table->integer('run_in_background')->default(0);
             });
     }
 

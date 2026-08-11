@@ -15,7 +15,7 @@ class AlterTasksTableAddRunOnOneServerSupport extends TotemMigration
     {
         Schema::connection(TOTEM_DATABASE_CONNECTION)
             ->table(TOTEM_TABLE_PREFIX.'tasks', function (Blueprint $table) {
-                $table->boolean('run_on_one_server')->default(false);
+                $table->integer('run_on_one_server')->default(0);
             });
     }
 
